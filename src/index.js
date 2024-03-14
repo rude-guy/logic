@@ -1,1 +1,3 @@
-console.log('123214');
+import messageManager from '@/messageManager';
+
+messageManager.init();
