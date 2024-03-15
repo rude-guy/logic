@@ -1,4 +1,5 @@
 import message from '@/message';
+import loader from '@/loader';
 
 class MessageManager {
   constructor() {
@@ -6,18 +7,13 @@ class MessageManager {
   }
 
   init() {
-    this.message.receive('test', (msg) => {
-      console.log('逻辑线程接收到 test消息', msg);
-    });
-
-    setTimeout(() => {
-      this.message.send({
-        type: 'test',
-        body: {
-          data: 'hello world',
-        },
+    this.message.receive('loadResource', (msg) => {
+      const { appId, bridgeId } = msg;
+      loader.loadResources({
+        appId,
+        bridgeId,
       });
-    }, 1000);
+    });
   }
 }
 

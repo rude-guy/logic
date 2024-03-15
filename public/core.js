@@ -20,6 +20,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mes
 
 /***/ }),
 
+/***/ "./src/loader/index.js":
+/*!*****************************!*\
+  !*** ./src/loader/index.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_corejs3_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/classCallCheck */ \"./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/helpers/esm/classCallCheck.js\");\n/* harmony import */ var _babel_runtime_corejs3_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/createClass */ \"./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/helpers/esm/createClass.js\");\n/* harmony import */ var _babel_runtime_corejs3_core_js_stable_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js-stable/map */ \"./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/core-js-stable/map.js\");\n/* harmony import */ var _babel_runtime_corejs3_core_js_stable_map__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_map__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/message */ \"./src/message/index.js\");\n\n\n\n\nvar Loader = /*#__PURE__*/function () {\n  function Loader() {\n    (0,_babel_runtime_corejs3_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(this, Loader);\n    this.staticModules = new (_babel_runtime_corejs3_core_js_stable_map__WEBPACK_IMPORTED_MODULE_2___default())();\n  }\n  (0,_babel_runtime_corejs3_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(Loader, [{\n    key: \"loadResources\",\n    value: function loadResources(opts) {\n      var appId = opts.appId,\n        bridgeId = opts.bridgeId;\n      var logicResourcePath = \"http://127.0.0.1:3077/mini_resource/\".concat(appId, \"/logic.js\");\n      importScripts(logicResourcePath);\n      _message__WEBPACK_IMPORTED_MODULE_3__[\"default\"].send({\n        type: 'logicResourceLoaded',\n        body: {\n          appId: appId,\n          bridgeId: bridgeId\n        }\n      });\n    }\n  }]);\n  return Loader;\n}();\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Loader());\n\n//# sourceURL=webpack://logic_sdk/./src/loader/index.js?");
+
+/***/ }),
+
 /***/ "./src/message/index.js":
 /*!******************************!*\
   !*** ./src/message/index.js ***!
@@ -38,17 +49,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_corejs3_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/classCallCheck */ \"./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/helpers/esm/classCallCheck.js\");\n/* harmony import */ var _babel_runtime_corejs3_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/createClass */ \"./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/helpers/esm/createClass.js\");\n/* harmony import */ var _babel_runtime_corejs3_core_js_stable_set_timeout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js-stable/set-timeout */ \"./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/core-js-stable/set-timeout.js\");\n/* harmony import */ var _babel_runtime_corejs3_core_js_stable_set_timeout__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_set_timeout__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/message */ \"./src/message/index.js\");\n\n\n\n\nvar MessageManager = /*#__PURE__*/function () {\n  function MessageManager() {\n    (0,_babel_runtime_corejs3_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(this, MessageManager);\n    this.message = _message__WEBPACK_IMPORTED_MODULE_3__[\"default\"];\n  }\n  (0,_babel_runtime_corejs3_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(MessageManager, [{\n    key: \"init\",\n    value: function init() {\n      var _this = this;\n      this.message.receive('test', function (msg) {\n        console.log('逻辑线程接收到 test消息', msg);\n      });\n      _babel_runtime_corejs3_core_js_stable_set_timeout__WEBPACK_IMPORTED_MODULE_2___default()(function () {\n        _this.message.send({\n          type: 'test',\n          body: {\n            data: 'hello world'\n          }\n        });\n      }, 1000);\n    }\n  }]);\n  return MessageManager;\n}();\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new MessageManager());\n\n//# sourceURL=webpack://logic_sdk/./src/messageManager/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_corejs3_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/classCallCheck */ \"./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/helpers/esm/classCallCheck.js\");\n/* harmony import */ var _babel_runtime_corejs3_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/createClass */ \"./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/helpers/esm/createClass.js\");\n/* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/message */ \"./src/message/index.js\");\n/* harmony import */ var _loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/loader */ \"./src/loader/index.js\");\n\n\n\n\nvar MessageManager = /*#__PURE__*/function () {\n  function MessageManager() {\n    (0,_babel_runtime_corejs3_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(this, MessageManager);\n    this.message = _message__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\n  }\n  (0,_babel_runtime_corejs3_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(MessageManager, [{\n    key: \"init\",\n    value: function init() {\n      this.message.receive('loadResource', function (msg) {\n        var appId = msg.appId,\n          bridgeId = msg.bridgeId;\n        _loader__WEBPACK_IMPORTED_MODULE_3__[\"default\"].loadResources({\n          appId: appId,\n          bridgeId: bridgeId\n        });\n      });\n    }\n  }]);\n  return MessageManager;\n}();\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new MessageManager());\n\n//# sourceURL=webpack://logic_sdk/./src/messageManager/index.js?");
 
 /***/ }),
 
-/***/ "./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/core-js-stable/set-timeout.js":
-/*!****************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/core-js-stable/set-timeout.js ***!
-  \****************************************************************************************************************************/
+/***/ "./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/core-js-stable/map.js":
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/core-js-stable/map.js ***!
+  \********************************************************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__(/*! core-js-pure/stable/set-timeout */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/stable/set-timeout.js\");\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/core-js-stable/set-timeout.js?");
+eval("module.exports = __webpack_require__(/*! core-js-pure/stable/map */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/stable/map/index.js\");\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/@babel+runtime-corejs3@7.24.0/node_modules/@babel/runtime-corejs3/core-js-stable/map.js?");
 
 /***/ }),
 
@@ -93,6 +104,17 @@ eval("\nvar parent = __webpack_require__(/*! ../../stable/symbol/iterator */ \".
 
 "use strict";
 eval("\nvar parent = __webpack_require__(/*! ../../stable/symbol/to-primitive */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/stable/symbol/to-primitive.js\");\n\nmodule.exports = parent;\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/actual/symbol/to-primitive.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/es/map/index.js":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/es/map/index.js ***!
+  \******************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n__webpack_require__(/*! ../../modules/es.array.iterator */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.array.iterator.js\");\n__webpack_require__(/*! ../../modules/es.map */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.js\");\n__webpack_require__(/*! ../../modules/es.map.group-by */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.group-by.js\");\n__webpack_require__(/*! ../../modules/es.object.to-string */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.object.to-string.js\");\n__webpack_require__(/*! ../../modules/es.string.iterator */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.string.iterator.js\");\nvar path = __webpack_require__(/*! ../../internals/path */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/path.js\");\n\nmodule.exports = path.Map;\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/es/map/index.js?");
 
 /***/ }),
 
@@ -217,6 +239,17 @@ eval("\nmodule.exports = function () { /* empty */ };\n\n\n//# sourceURL=webpack
 
 /***/ }),
 
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/an-instance.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/an-instance.js ***!
+  \***************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar isPrototypeOf = __webpack_require__(/*! ../internals/object-is-prototype-of */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-is-prototype-of.js\");\n\nvar $TypeError = TypeError;\n\nmodule.exports = function (it, Prototype) {\n  if (isPrototypeOf(Prototype, it)) return it;\n  throw new $TypeError('Incorrect invocation');\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/an-instance.js?");
+
+/***/ }),
+
 /***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/an-object.js":
 /*!*************************************************************************************************!*\
   !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/an-object.js ***!
@@ -225,6 +258,17 @@ eval("\nmodule.exports = function () { /* empty */ };\n\n\n//# sourceURL=webpack
 
 "use strict";
 eval("\nvar isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-object.js\");\n\nvar $String = String;\nvar $TypeError = TypeError;\n\n// `Assert: Type(argument) is Object`\nmodule.exports = function (argument) {\n  if (isObject(argument)) return argument;\n  throw new $TypeError($String(argument) + ' is not an object');\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/an-object.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/array-buffer-non-extensible.js":
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/array-buffer-non-extensible.js ***!
+  \*******************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n// FF26- bug: ArrayBuffers are non-extensible, but Object.isExtensible does not report it\nvar fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/fails.js\");\n\nmodule.exports = fails(function () {\n  if (typeof ArrayBuffer == 'function') {\n    var buffer = new ArrayBuffer(8);\n    // eslint-disable-next-line es/no-object-isextensible, es/no-object-defineproperty -- safe\n    if (Object.isExtensible(buffer)) Object.defineProperty(buffer, 'a', { value: 8 });\n  }\n});\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/array-buffer-non-extensible.js?");
 
 /***/ }),
 
@@ -294,6 +338,17 @@ eval("\nvar arraySpeciesConstructor = __webpack_require__(/*! ../internals/array
 
 /***/ }),
 
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/caller.js":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/caller.js ***!
+  \**********************************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+eval("\nmodule.exports = function (methodName, numArgs) {\n  return numArgs === 1 ? function (object, arg) {\n    return object[methodName](arg);\n  } : function (object, arg1, arg2) {\n    return object[methodName](arg1, arg2);\n  };\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/caller.js?");
+
+/***/ }),
+
 /***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/classof-raw.js":
 /*!***************************************************************************************************!*\
   !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/classof-raw.js ***!
@@ -313,6 +368,28 @@ eval("\nvar uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-
 
 "use strict";
 eval("\nvar TO_STRING_TAG_SUPPORT = __webpack_require__(/*! ../internals/to-string-tag-support */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/to-string-tag-support.js\");\nvar isCallable = __webpack_require__(/*! ../internals/is-callable */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-callable.js\");\nvar classofRaw = __webpack_require__(/*! ../internals/classof-raw */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/classof-raw.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/well-known-symbol.js\");\n\nvar TO_STRING_TAG = wellKnownSymbol('toStringTag');\nvar $Object = Object;\n\n// ES3 wrong here\nvar CORRECT_ARGUMENTS = classofRaw(function () { return arguments; }()) === 'Arguments';\n\n// fallback for IE11 Script Access Denied error\nvar tryGet = function (it, key) {\n  try {\n    return it[key];\n  } catch (error) { /* empty */ }\n};\n\n// getting tag from ES6+ `Object.prototype.toString`\nmodule.exports = TO_STRING_TAG_SUPPORT ? classofRaw : function (it) {\n  var O, tag, result;\n  return it === undefined ? 'Undefined' : it === null ? 'Null'\n    // @@toStringTag case\n    : typeof (tag = tryGet(O = $Object(it), TO_STRING_TAG)) == 'string' ? tag\n    // builtinTag case\n    : CORRECT_ARGUMENTS ? classofRaw(O)\n    // ES3 arguments fallback\n    : (result = classofRaw(O)) === 'Object' && isCallable(O.callee) ? 'Arguments' : result;\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/classof.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/collection-strong.js":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/collection-strong.js ***!
+  \*********************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar create = __webpack_require__(/*! ../internals/object-create */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-create.js\");\nvar defineBuiltInAccessor = __webpack_require__(/*! ../internals/define-built-in-accessor */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/define-built-in-accessor.js\");\nvar defineBuiltIns = __webpack_require__(/*! ../internals/define-built-ins */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/define-built-ins.js\");\nvar bind = __webpack_require__(/*! ../internals/function-bind-context */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/function-bind-context.js\");\nvar anInstance = __webpack_require__(/*! ../internals/an-instance */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/an-instance.js\");\nvar isNullOrUndefined = __webpack_require__(/*! ../internals/is-null-or-undefined */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-null-or-undefined.js\");\nvar iterate = __webpack_require__(/*! ../internals/iterate */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterate.js\");\nvar defineIterator = __webpack_require__(/*! ../internals/iterator-define */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterator-define.js\");\nvar createIterResultObject = __webpack_require__(/*! ../internals/create-iter-result-object */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/create-iter-result-object.js\");\nvar setSpecies = __webpack_require__(/*! ../internals/set-species */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/set-species.js\");\nvar DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/descriptors.js\");\nvar fastKey = (__webpack_require__(/*! ../internals/internal-metadata */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/internal-metadata.js\").fastKey);\nvar InternalStateModule = __webpack_require__(/*! ../internals/internal-state */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/internal-state.js\");\n\nvar setInternalState = InternalStateModule.set;\nvar internalStateGetterFor = InternalStateModule.getterFor;\n\nmodule.exports = {\n  getConstructor: function (wrapper, CONSTRUCTOR_NAME, IS_MAP, ADDER) {\n    var Constructor = wrapper(function (that, iterable) {\n      anInstance(that, Prototype);\n      setInternalState(that, {\n        type: CONSTRUCTOR_NAME,\n        index: create(null),\n        first: undefined,\n        last: undefined,\n        size: 0\n      });\n      if (!DESCRIPTORS) that.size = 0;\n      if (!isNullOrUndefined(iterable)) iterate(iterable, that[ADDER], { that: that, AS_ENTRIES: IS_MAP });\n    });\n\n    var Prototype = Constructor.prototype;\n\n    var getInternalState = internalStateGetterFor(CONSTRUCTOR_NAME);\n\n    var define = function (that, key, value) {\n      var state = getInternalState(that);\n      var entry = getEntry(that, key);\n      var previous, index;\n      // change existing entry\n      if (entry) {\n        entry.value = value;\n      // create new entry\n      } else {\n        state.last = entry = {\n          index: index = fastKey(key, true),\n          key: key,\n          value: value,\n          previous: previous = state.last,\n          next: undefined,\n          removed: false\n        };\n        if (!state.first) state.first = entry;\n        if (previous) previous.next = entry;\n        if (DESCRIPTORS) state.size++;\n        else that.size++;\n        // add to index\n        if (index !== 'F') state.index[index] = entry;\n      } return that;\n    };\n\n    var getEntry = function (that, key) {\n      var state = getInternalState(that);\n      // fast case\n      var index = fastKey(key);\n      var entry;\n      if (index !== 'F') return state.index[index];\n      // frozen object case\n      for (entry = state.first; entry; entry = entry.next) {\n        if (entry.key === key) return entry;\n      }\n    };\n\n    defineBuiltIns(Prototype, {\n      // `{ Map, Set }.prototype.clear()` methods\n      // https://tc39.es/ecma262/#sec-map.prototype.clear\n      // https://tc39.es/ecma262/#sec-set.prototype.clear\n      clear: function clear() {\n        var that = this;\n        var state = getInternalState(that);\n        var entry = state.first;\n        while (entry) {\n          entry.removed = true;\n          if (entry.previous) entry.previous = entry.previous.next = undefined;\n          entry = entry.next;\n        }\n        state.first = state.last = undefined;\n        state.index = create(null);\n        if (DESCRIPTORS) state.size = 0;\n        else that.size = 0;\n      },\n      // `{ Map, Set }.prototype.delete(key)` methods\n      // https://tc39.es/ecma262/#sec-map.prototype.delete\n      // https://tc39.es/ecma262/#sec-set.prototype.delete\n      'delete': function (key) {\n        var that = this;\n        var state = getInternalState(that);\n        var entry = getEntry(that, key);\n        if (entry) {\n          var next = entry.next;\n          var prev = entry.previous;\n          delete state.index[entry.index];\n          entry.removed = true;\n          if (prev) prev.next = next;\n          if (next) next.previous = prev;\n          if (state.first === entry) state.first = next;\n          if (state.last === entry) state.last = prev;\n          if (DESCRIPTORS) state.size--;\n          else that.size--;\n        } return !!entry;\n      },\n      // `{ Map, Set }.prototype.forEach(callbackfn, thisArg = undefined)` methods\n      // https://tc39.es/ecma262/#sec-map.prototype.foreach\n      // https://tc39.es/ecma262/#sec-set.prototype.foreach\n      forEach: function forEach(callbackfn /* , that = undefined */) {\n        var state = getInternalState(this);\n        var boundFunction = bind(callbackfn, arguments.length > 1 ? arguments[1] : undefined);\n        var entry;\n        while (entry = entry ? entry.next : state.first) {\n          boundFunction(entry.value, entry.key, this);\n          // revert to the last existing entry\n          while (entry && entry.removed) entry = entry.previous;\n        }\n      },\n      // `{ Map, Set}.prototype.has(key)` methods\n      // https://tc39.es/ecma262/#sec-map.prototype.has\n      // https://tc39.es/ecma262/#sec-set.prototype.has\n      has: function has(key) {\n        return !!getEntry(this, key);\n      }\n    });\n\n    defineBuiltIns(Prototype, IS_MAP ? {\n      // `Map.prototype.get(key)` method\n      // https://tc39.es/ecma262/#sec-map.prototype.get\n      get: function get(key) {\n        var entry = getEntry(this, key);\n        return entry && entry.value;\n      },\n      // `Map.prototype.set(key, value)` method\n      // https://tc39.es/ecma262/#sec-map.prototype.set\n      set: function set(key, value) {\n        return define(this, key === 0 ? 0 : key, value);\n      }\n    } : {\n      // `Set.prototype.add(value)` method\n      // https://tc39.es/ecma262/#sec-set.prototype.add\n      add: function add(value) {\n        return define(this, value = value === 0 ? 0 : value, value);\n      }\n    });\n    if (DESCRIPTORS) defineBuiltInAccessor(Prototype, 'size', {\n      configurable: true,\n      get: function () {\n        return getInternalState(this).size;\n      }\n    });\n    return Constructor;\n  },\n  setStrong: function (Constructor, CONSTRUCTOR_NAME, IS_MAP) {\n    var ITERATOR_NAME = CONSTRUCTOR_NAME + ' Iterator';\n    var getInternalCollectionState = internalStateGetterFor(CONSTRUCTOR_NAME);\n    var getInternalIteratorState = internalStateGetterFor(ITERATOR_NAME);\n    // `{ Map, Set }.prototype.{ keys, values, entries, @@iterator }()` methods\n    // https://tc39.es/ecma262/#sec-map.prototype.entries\n    // https://tc39.es/ecma262/#sec-map.prototype.keys\n    // https://tc39.es/ecma262/#sec-map.prototype.values\n    // https://tc39.es/ecma262/#sec-map.prototype-@@iterator\n    // https://tc39.es/ecma262/#sec-set.prototype.entries\n    // https://tc39.es/ecma262/#sec-set.prototype.keys\n    // https://tc39.es/ecma262/#sec-set.prototype.values\n    // https://tc39.es/ecma262/#sec-set.prototype-@@iterator\n    defineIterator(Constructor, CONSTRUCTOR_NAME, function (iterated, kind) {\n      setInternalState(this, {\n        type: ITERATOR_NAME,\n        target: iterated,\n        state: getInternalCollectionState(iterated),\n        kind: kind,\n        last: undefined\n      });\n    }, function () {\n      var state = getInternalIteratorState(this);\n      var kind = state.kind;\n      var entry = state.last;\n      // revert to the last existing entry\n      while (entry && entry.removed) entry = entry.previous;\n      // get next entry\n      if (!state.target || !(state.last = entry = entry ? entry.next : state.state.first)) {\n        // or finish the iteration\n        state.target = undefined;\n        return createIterResultObject(undefined, true);\n      }\n      // return step by kind\n      if (kind === 'keys') return createIterResultObject(entry.key, false);\n      if (kind === 'values') return createIterResultObject(entry.value, false);\n      return createIterResultObject([entry.key, entry.value], false);\n    }, IS_MAP ? 'entries' : 'values', !IS_MAP, true);\n\n    // `{ Map, Set }.prototype[@@species]` accessors\n    // https://tc39.es/ecma262/#sec-get-map-@@species\n    // https://tc39.es/ecma262/#sec-get-set-@@species\n    setSpecies(CONSTRUCTOR_NAME);\n  }\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/collection-strong.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/collection.js":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/collection.js ***!
+  \**************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/export.js\");\nvar global = __webpack_require__(/*! ../internals/global */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/global.js\");\nvar InternalMetadataModule = __webpack_require__(/*! ../internals/internal-metadata */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/internal-metadata.js\");\nvar fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/fails.js\");\nvar createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/create-non-enumerable-property.js\");\nvar iterate = __webpack_require__(/*! ../internals/iterate */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterate.js\");\nvar anInstance = __webpack_require__(/*! ../internals/an-instance */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/an-instance.js\");\nvar isCallable = __webpack_require__(/*! ../internals/is-callable */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-callable.js\");\nvar isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-object.js\");\nvar isNullOrUndefined = __webpack_require__(/*! ../internals/is-null-or-undefined */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-null-or-undefined.js\");\nvar setToStringTag = __webpack_require__(/*! ../internals/set-to-string-tag */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/set-to-string-tag.js\");\nvar defineProperty = (__webpack_require__(/*! ../internals/object-define-property */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-define-property.js\").f);\nvar forEach = (__webpack_require__(/*! ../internals/array-iteration */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/array-iteration.js\").forEach);\nvar DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/descriptors.js\");\nvar InternalStateModule = __webpack_require__(/*! ../internals/internal-state */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/internal-state.js\");\n\nvar setInternalState = InternalStateModule.set;\nvar internalStateGetterFor = InternalStateModule.getterFor;\n\nmodule.exports = function (CONSTRUCTOR_NAME, wrapper, common) {\n  var IS_MAP = CONSTRUCTOR_NAME.indexOf('Map') !== -1;\n  var IS_WEAK = CONSTRUCTOR_NAME.indexOf('Weak') !== -1;\n  var ADDER = IS_MAP ? 'set' : 'add';\n  var NativeConstructor = global[CONSTRUCTOR_NAME];\n  var NativePrototype = NativeConstructor && NativeConstructor.prototype;\n  var exported = {};\n  var Constructor;\n\n  if (!DESCRIPTORS || !isCallable(NativeConstructor)\n    || !(IS_WEAK || NativePrototype.forEach && !fails(function () { new NativeConstructor().entries().next(); }))\n  ) {\n    // create collection constructor\n    Constructor = common.getConstructor(wrapper, CONSTRUCTOR_NAME, IS_MAP, ADDER);\n    InternalMetadataModule.enable();\n  } else {\n    Constructor = wrapper(function (target, iterable) {\n      setInternalState(anInstance(target, Prototype), {\n        type: CONSTRUCTOR_NAME,\n        collection: new NativeConstructor()\n      });\n      if (!isNullOrUndefined(iterable)) iterate(iterable, target[ADDER], { that: target, AS_ENTRIES: IS_MAP });\n    });\n\n    var Prototype = Constructor.prototype;\n\n    var getInternalState = internalStateGetterFor(CONSTRUCTOR_NAME);\n\n    forEach(['add', 'clear', 'delete', 'forEach', 'get', 'has', 'set', 'keys', 'values', 'entries'], function (KEY) {\n      var IS_ADDER = KEY === 'add' || KEY === 'set';\n      if (KEY in NativePrototype && !(IS_WEAK && KEY === 'clear')) {\n        createNonEnumerableProperty(Prototype, KEY, function (a, b) {\n          var collection = getInternalState(this).collection;\n          if (!IS_ADDER && IS_WEAK && !isObject(a)) return KEY === 'get' ? undefined : false;\n          var result = collection[KEY](a === 0 ? 0 : a, b);\n          return IS_ADDER ? this : result;\n        });\n      }\n    });\n\n    IS_WEAK || defineProperty(Prototype, 'size', {\n      configurable: true,\n      get: function () {\n        return getInternalState(this).collection.size;\n      }\n    });\n  }\n\n  setToStringTag(Constructor, CONSTRUCTOR_NAME, false, true);\n\n  exported[CONSTRUCTOR_NAME] = Constructor;\n  $({ global: true, forced: true }, exported);\n\n  if (!IS_WEAK) common.setStrong(Constructor, CONSTRUCTOR_NAME, IS_MAP);\n\n  return Constructor;\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/collection.js?");
 
 /***/ }),
 
@@ -393,6 +470,17 @@ eval("\nvar createNonEnumerableProperty = __webpack_require__(/*! ../internals/c
 
 /***/ }),
 
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/define-built-ins.js":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/define-built-ins.js ***!
+  \********************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar defineBuiltIn = __webpack_require__(/*! ../internals/define-built-in */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/define-built-in.js\");\n\nmodule.exports = function (target, src, options) {\n  for (var key in src) {\n    if (options && options.unsafe && target[key]) target[key] = src[key];\n    else defineBuiltIn(target, key, src[key], options);\n  } return target;\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/define-built-ins.js?");
+
+/***/ }),
+
 /***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/define-global-property.js":
 /*!**************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/define-global-property.js ***!
@@ -448,17 +536,6 @@ eval("\n// iterable DOM collections\n// flag - `iterable` interface - 'entries',
 
 /***/ }),
 
-/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/engine-is-bun.js":
-/*!*****************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/engine-is-bun.js ***!
-  \*****************************************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-eval("\n/* global Bun -- Bun case */\nmodule.exports = typeof Bun == 'function' && Bun && typeof Bun.version == 'string';\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/engine-is-bun.js?");
-
-/***/ }),
-
 /***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/engine-user-agent.js":
 /*!*********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/engine-user-agent.js ***!
@@ -511,6 +588,17 @@ eval("\nvar global = __webpack_require__(/*! ../internals/global */ \"./node_mod
 
 "use strict";
 eval("\nmodule.exports = function (exec) {\n  try {\n    return !!exec();\n  } catch (error) {\n    return true;\n  }\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/fails.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/freezing.js":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/freezing.js ***!
+  \************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/fails.js\");\n\nmodule.exports = !fails(function () {\n  // eslint-disable-next-line es/no-object-isextensible, es/no-object-preventextensions -- required for testing\n  return Object.isExtensible(Object.preventExtensions({}));\n});\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/freezing.js?");
 
 /***/ }),
 
@@ -613,6 +701,28 @@ eval("\nvar path = __webpack_require__(/*! ../internals/path */ \"./node_modules
 
 /***/ }),
 
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-iterator-method.js":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-iterator-method.js ***!
+  \***********************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar classof = __webpack_require__(/*! ../internals/classof */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/classof.js\");\nvar getMethod = __webpack_require__(/*! ../internals/get-method */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-method.js\");\nvar isNullOrUndefined = __webpack_require__(/*! ../internals/is-null-or-undefined */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-null-or-undefined.js\");\nvar Iterators = __webpack_require__(/*! ../internals/iterators */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterators.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/well-known-symbol.js\");\n\nvar ITERATOR = wellKnownSymbol('iterator');\n\nmodule.exports = function (it) {\n  if (!isNullOrUndefined(it)) return getMethod(it, ITERATOR)\n    || getMethod(it, '@@iterator')\n    || Iterators[classof(it)];\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-iterator-method.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-iterator.js":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-iterator.js ***!
+  \****************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar call = __webpack_require__(/*! ../internals/function-call */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/function-call.js\");\nvar aCallable = __webpack_require__(/*! ../internals/a-callable */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/a-callable.js\");\nvar anObject = __webpack_require__(/*! ../internals/an-object */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/an-object.js\");\nvar tryToString = __webpack_require__(/*! ../internals/try-to-string */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/try-to-string.js\");\nvar getIteratorMethod = __webpack_require__(/*! ../internals/get-iterator-method */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-iterator-method.js\");\n\nvar $TypeError = TypeError;\n\nmodule.exports = function (argument, usingIterator) {\n  var iteratorMethod = arguments.length < 2 ? getIteratorMethod(argument) : usingIterator;\n  if (aCallable(iteratorMethod)) return anObject(call(iteratorMethod, argument));\n  throw new $TypeError(tryToString(argument) + ' is not iterable');\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-iterator.js?");
+
+/***/ }),
+
 /***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-json-replacer-function.js":
 /*!******************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-json-replacer-function.js ***!
@@ -712,6 +822,17 @@ eval("\nvar uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-
 
 /***/ }),
 
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/internal-metadata.js":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/internal-metadata.js ***!
+  \*********************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/export.js\");\nvar uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-this */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/function-uncurry-this.js\");\nvar hiddenKeys = __webpack_require__(/*! ../internals/hidden-keys */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/hidden-keys.js\");\nvar isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-object.js\");\nvar hasOwn = __webpack_require__(/*! ../internals/has-own-property */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/has-own-property.js\");\nvar defineProperty = (__webpack_require__(/*! ../internals/object-define-property */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-define-property.js\").f);\nvar getOwnPropertyNamesModule = __webpack_require__(/*! ../internals/object-get-own-property-names */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-get-own-property-names.js\");\nvar getOwnPropertyNamesExternalModule = __webpack_require__(/*! ../internals/object-get-own-property-names-external */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-get-own-property-names-external.js\");\nvar isExtensible = __webpack_require__(/*! ../internals/object-is-extensible */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-is-extensible.js\");\nvar uid = __webpack_require__(/*! ../internals/uid */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/uid.js\");\nvar FREEZING = __webpack_require__(/*! ../internals/freezing */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/freezing.js\");\n\nvar REQUIRED = false;\nvar METADATA = uid('meta');\nvar id = 0;\n\nvar setMetadata = function (it) {\n  defineProperty(it, METADATA, { value: {\n    objectID: 'O' + id++, // object ID\n    weakData: {}          // weak collections IDs\n  } });\n};\n\nvar fastKey = function (it, create) {\n  // return a primitive with prefix\n  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;\n  if (!hasOwn(it, METADATA)) {\n    // can't set metadata to uncaught frozen object\n    if (!isExtensible(it)) return 'F';\n    // not necessary to add metadata\n    if (!create) return 'E';\n    // add missing metadata\n    setMetadata(it);\n  // return object ID\n  } return it[METADATA].objectID;\n};\n\nvar getWeakData = function (it, create) {\n  if (!hasOwn(it, METADATA)) {\n    // can't set metadata to uncaught frozen object\n    if (!isExtensible(it)) return true;\n    // not necessary to add metadata\n    if (!create) return false;\n    // add missing metadata\n    setMetadata(it);\n  // return the store of weak collections IDs\n  } return it[METADATA].weakData;\n};\n\n// add metadata on freeze-family methods calling\nvar onFreeze = function (it) {\n  if (FREEZING && REQUIRED && isExtensible(it) && !hasOwn(it, METADATA)) setMetadata(it);\n  return it;\n};\n\nvar enable = function () {\n  meta.enable = function () { /* empty */ };\n  REQUIRED = true;\n  var getOwnPropertyNames = getOwnPropertyNamesModule.f;\n  var splice = uncurryThis([].splice);\n  var test = {};\n  test[METADATA] = 1;\n\n  // prevent exposing of metadata key\n  if (getOwnPropertyNames(test).length) {\n    getOwnPropertyNamesModule.f = function (it) {\n      var result = getOwnPropertyNames(it);\n      for (var i = 0, length = result.length; i < length; i++) {\n        if (result[i] === METADATA) {\n          splice(result, i, 1);\n          break;\n        }\n      } return result;\n    };\n\n    $({ target: 'Object', stat: true, forced: true }, {\n      getOwnPropertyNames: getOwnPropertyNamesExternalModule.f\n    });\n  }\n};\n\nvar meta = module.exports = {\n  enable: enable,\n  fastKey: fastKey,\n  getWeakData: getWeakData,\n  onFreeze: onFreeze\n};\n\nhiddenKeys[METADATA] = true;\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/internal-metadata.js?");
+
+/***/ }),
+
 /***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/internal-state.js":
 /*!******************************************************************************************************!*\
   !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/internal-state.js ***!
@@ -720,6 +841,17 @@ eval("\nvar uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-
 
 "use strict";
 eval("\nvar NATIVE_WEAK_MAP = __webpack_require__(/*! ../internals/weak-map-basic-detection */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/weak-map-basic-detection.js\");\nvar global = __webpack_require__(/*! ../internals/global */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/global.js\");\nvar isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-object.js\");\nvar createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/create-non-enumerable-property.js\");\nvar hasOwn = __webpack_require__(/*! ../internals/has-own-property */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/has-own-property.js\");\nvar shared = __webpack_require__(/*! ../internals/shared-store */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/shared-store.js\");\nvar sharedKey = __webpack_require__(/*! ../internals/shared-key */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/shared-key.js\");\nvar hiddenKeys = __webpack_require__(/*! ../internals/hidden-keys */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/hidden-keys.js\");\n\nvar OBJECT_ALREADY_INITIALIZED = 'Object already initialized';\nvar TypeError = global.TypeError;\nvar WeakMap = global.WeakMap;\nvar set, get, has;\n\nvar enforce = function (it) {\n  return has(it) ? get(it) : set(it, {});\n};\n\nvar getterFor = function (TYPE) {\n  return function (it) {\n    var state;\n    if (!isObject(it) || (state = get(it)).type !== TYPE) {\n      throw new TypeError('Incompatible receiver, ' + TYPE + ' required');\n    } return state;\n  };\n};\n\nif (NATIVE_WEAK_MAP || shared.state) {\n  var store = shared.state || (shared.state = new WeakMap());\n  /* eslint-disable no-self-assign -- prototype methods protection */\n  store.get = store.get;\n  store.has = store.has;\n  store.set = store.set;\n  /* eslint-enable no-self-assign -- prototype methods protection */\n  set = function (it, metadata) {\n    if (store.has(it)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);\n    metadata.facade = it;\n    store.set(it, metadata);\n    return metadata;\n  };\n  get = function (it) {\n    return store.get(it) || {};\n  };\n  has = function (it) {\n    return store.has(it);\n  };\n} else {\n  var STATE = sharedKey('state');\n  hiddenKeys[STATE] = true;\n  set = function (it, metadata) {\n    if (hasOwn(it, STATE)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);\n    metadata.facade = it;\n    createNonEnumerableProperty(it, STATE, metadata);\n    return metadata;\n  };\n  get = function (it) {\n    return hasOwn(it, STATE) ? it[STATE] : {};\n  };\n  has = function (it) {\n    return hasOwn(it, STATE);\n  };\n}\n\nmodule.exports = {\n  set: set,\n  get: get,\n  has: has,\n  enforce: enforce,\n  getterFor: getterFor\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/internal-state.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-array-iterator-method.js":
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-array-iterator-method.js ***!
+  \****************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/well-known-symbol.js\");\nvar Iterators = __webpack_require__(/*! ../internals/iterators */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterators.js\");\n\nvar ITERATOR = wellKnownSymbol('iterator');\nvar ArrayPrototype = Array.prototype;\n\n// check on default Array iterator\nmodule.exports = function (it) {\n  return it !== undefined && (Iterators.Array === it || ArrayPrototype[ITERATOR] === it);\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-array-iterator-method.js?");
 
 /***/ }),
 
@@ -822,6 +954,28 @@ eval("\nvar getBuiltIn = __webpack_require__(/*! ../internals/get-built-in */ \"
 
 /***/ }),
 
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterate.js":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterate.js ***!
+  \***********************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar bind = __webpack_require__(/*! ../internals/function-bind-context */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/function-bind-context.js\");\nvar call = __webpack_require__(/*! ../internals/function-call */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/function-call.js\");\nvar anObject = __webpack_require__(/*! ../internals/an-object */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/an-object.js\");\nvar tryToString = __webpack_require__(/*! ../internals/try-to-string */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/try-to-string.js\");\nvar isArrayIteratorMethod = __webpack_require__(/*! ../internals/is-array-iterator-method */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-array-iterator-method.js\");\nvar lengthOfArrayLike = __webpack_require__(/*! ../internals/length-of-array-like */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/length-of-array-like.js\");\nvar isPrototypeOf = __webpack_require__(/*! ../internals/object-is-prototype-of */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-is-prototype-of.js\");\nvar getIterator = __webpack_require__(/*! ../internals/get-iterator */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-iterator.js\");\nvar getIteratorMethod = __webpack_require__(/*! ../internals/get-iterator-method */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-iterator-method.js\");\nvar iteratorClose = __webpack_require__(/*! ../internals/iterator-close */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterator-close.js\");\n\nvar $TypeError = TypeError;\n\nvar Result = function (stopped, result) {\n  this.stopped = stopped;\n  this.result = result;\n};\n\nvar ResultPrototype = Result.prototype;\n\nmodule.exports = function (iterable, unboundFunction, options) {\n  var that = options && options.that;\n  var AS_ENTRIES = !!(options && options.AS_ENTRIES);\n  var IS_RECORD = !!(options && options.IS_RECORD);\n  var IS_ITERATOR = !!(options && options.IS_ITERATOR);\n  var INTERRUPTED = !!(options && options.INTERRUPTED);\n  var fn = bind(unboundFunction, that);\n  var iterator, iterFn, index, length, result, next, step;\n\n  var stop = function (condition) {\n    if (iterator) iteratorClose(iterator, 'normal', condition);\n    return new Result(true, condition);\n  };\n\n  var callFn = function (value) {\n    if (AS_ENTRIES) {\n      anObject(value);\n      return INTERRUPTED ? fn(value[0], value[1], stop) : fn(value[0], value[1]);\n    } return INTERRUPTED ? fn(value, stop) : fn(value);\n  };\n\n  if (IS_RECORD) {\n    iterator = iterable.iterator;\n  } else if (IS_ITERATOR) {\n    iterator = iterable;\n  } else {\n    iterFn = getIteratorMethod(iterable);\n    if (!iterFn) throw new $TypeError(tryToString(iterable) + ' is not iterable');\n    // optimisation for array iterators\n    if (isArrayIteratorMethod(iterFn)) {\n      for (index = 0, length = lengthOfArrayLike(iterable); length > index; index++) {\n        result = callFn(iterable[index]);\n        if (result && isPrototypeOf(ResultPrototype, result)) return result;\n      } return new Result(false);\n    }\n    iterator = getIterator(iterable, iterFn);\n  }\n\n  next = IS_RECORD ? iterable.next : iterator.next;\n  while (!(step = call(next, iterator)).done) {\n    try {\n      result = callFn(step.value);\n    } catch (error) {\n      iteratorClose(iterator, 'throw', error);\n    }\n    if (typeof result == 'object' && result && isPrototypeOf(ResultPrototype, result)) return result;\n  } return new Result(false);\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterate.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterator-close.js":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterator-close.js ***!
+  \******************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar call = __webpack_require__(/*! ../internals/function-call */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/function-call.js\");\nvar anObject = __webpack_require__(/*! ../internals/an-object */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/an-object.js\");\nvar getMethod = __webpack_require__(/*! ../internals/get-method */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-method.js\");\n\nmodule.exports = function (iterator, kind, value) {\n  var innerResult, innerError;\n  anObject(iterator);\n  try {\n    innerResult = getMethod(iterator, 'return');\n    if (!innerResult) {\n      if (kind === 'throw') throw value;\n      return value;\n    }\n    innerResult = call(innerResult, iterator);\n  } catch (error) {\n    innerError = true;\n    innerResult = error;\n  }\n  if (kind === 'throw') throw value;\n  if (innerError) throw innerResult;\n  anObject(innerResult);\n  return value;\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterator-close.js?");
+
+/***/ }),
+
 /***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterator-create-constructor.js":
 /*!*******************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterator-create-constructor.js ***!
@@ -874,6 +1028,17 @@ eval("\nmodule.exports = {};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modul
 
 "use strict";
 eval("\nvar toLength = __webpack_require__(/*! ../internals/to-length */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/to-length.js\");\n\n// `LengthOfArrayLike` abstract operation\n// https://tc39.es/ecma262/#sec-lengthofarraylike\nmodule.exports = function (obj) {\n  return toLength(obj.length);\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/length-of-array-like.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/map-helpers.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/map-helpers.js ***!
+  \***************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar getBuiltIn = __webpack_require__(/*! ../internals/get-built-in */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-built-in.js\");\nvar caller = __webpack_require__(/*! ../internals/caller */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/caller.js\");\n\nvar Map = getBuiltIn('Map');\n\nmodule.exports = {\n  Map: Map,\n  set: caller('set', 2),\n  get: caller('get', 1),\n  has: caller('has', 1),\n  remove: caller('delete', 1),\n  proto: Map.prototype\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/map-helpers.js?");
 
 /***/ }),
 
@@ -976,6 +1141,17 @@ eval("\nvar hasOwn = __webpack_require__(/*! ../internals/has-own-property */ \"
 
 /***/ }),
 
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-is-extensible.js":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-is-extensible.js ***!
+  \************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/fails.js\");\nvar isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-object.js\");\nvar classof = __webpack_require__(/*! ../internals/classof-raw */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/classof-raw.js\");\nvar ARRAY_BUFFER_NON_EXTENSIBLE = __webpack_require__(/*! ../internals/array-buffer-non-extensible */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/array-buffer-non-extensible.js\");\n\n// eslint-disable-next-line es/no-object-isextensible -- safe\nvar $isExtensible = Object.isExtensible;\nvar FAILS_ON_PRIMITIVES = fails(function () { $isExtensible(1); });\n\n// `Object.isExtensible` method\n// https://tc39.es/ecma262/#sec-object.isextensible\nmodule.exports = (FAILS_ON_PRIMITIVES || ARRAY_BUFFER_NON_EXTENSIBLE) ? function isExtensible(it) {\n  if (!isObject(it)) return false;\n  if (ARRAY_BUFFER_NON_EXTENSIBLE && classof(it) === 'ArrayBuffer') return false;\n  return $isExtensible ? $isExtensible(it) : true;\n} : $isExtensible;\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-is-extensible.js?");
+
+/***/ }),
+
 /***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-is-prototype-of.js":
 /*!**************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/object-is-prototype-of.js ***!
@@ -1075,14 +1251,14 @@ eval("\nvar isNullOrUndefined = __webpack_require__(/*! ../internals/is-null-or-
 
 /***/ }),
 
-/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/schedulers-fix.js":
-/*!******************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/schedulers-fix.js ***!
-  \******************************************************************************************************/
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/set-species.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/set-species.js ***!
+  \***************************************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("\nvar global = __webpack_require__(/*! ../internals/global */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/global.js\");\nvar apply = __webpack_require__(/*! ../internals/function-apply */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/function-apply.js\");\nvar isCallable = __webpack_require__(/*! ../internals/is-callable */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-callable.js\");\nvar ENGINE_IS_BUN = __webpack_require__(/*! ../internals/engine-is-bun */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/engine-is-bun.js\");\nvar USER_AGENT = __webpack_require__(/*! ../internals/engine-user-agent */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/engine-user-agent.js\");\nvar arraySlice = __webpack_require__(/*! ../internals/array-slice */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/array-slice.js\");\nvar validateArgumentsLength = __webpack_require__(/*! ../internals/validate-arguments-length */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/validate-arguments-length.js\");\n\nvar Function = global.Function;\n// dirty IE9- and Bun 0.3.0- checks\nvar WRAP = /MSIE .\\./.test(USER_AGENT) || ENGINE_IS_BUN && (function () {\n  var version = global.Bun.version.split('.');\n  return version.length < 3 || version[0] === '0' && (version[1] < 3 || version[1] === '3' && version[2] === '0');\n})();\n\n// IE9- / Bun 0.3.0- setTimeout / setInterval / setImmediate additional parameters fix\n// https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers\n// https://github.com/oven-sh/bun/issues/1633\nmodule.exports = function (scheduler, hasTimeArg) {\n  var firstParamIndex = hasTimeArg ? 2 : 1;\n  return WRAP ? function (handler, timeout /* , ...arguments */) {\n    var boundArgs = validateArgumentsLength(arguments.length, 1) > firstParamIndex;\n    var fn = isCallable(handler) ? handler : Function(handler);\n    var params = boundArgs ? arraySlice(arguments, firstParamIndex) : [];\n    var callback = boundArgs ? function () {\n      apply(fn, this, params);\n    } : fn;\n    return hasTimeArg ? scheduler(callback, timeout) : scheduler(callback);\n  } : scheduler;\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/schedulers-fix.js?");
+eval("\nvar getBuiltIn = __webpack_require__(/*! ../internals/get-built-in */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/get-built-in.js\");\nvar defineBuiltInAccessor = __webpack_require__(/*! ../internals/define-built-in-accessor */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/define-built-in-accessor.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/well-known-symbol.js\");\nvar DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/descriptors.js\");\n\nvar SPECIES = wellKnownSymbol('species');\n\nmodule.exports = function (CONSTRUCTOR_NAME) {\n  var Constructor = getBuiltIn(CONSTRUCTOR_NAME);\n\n  if (DESCRIPTORS && Constructor && !Constructor[SPECIES]) {\n    defineBuiltInAccessor(Constructor, SPECIES, {\n      configurable: true,\n      get: function () { return this; }\n    });\n  }\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/set-species.js?");
 
 /***/ }),
 
@@ -1339,17 +1515,6 @@ eval("\nvar DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ \"
 
 /***/ }),
 
-/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/validate-arguments-length.js":
-/*!*****************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/validate-arguments-length.js ***!
-  \*****************************************************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-eval("\nvar $TypeError = TypeError;\n\nmodule.exports = function (passed, required) {\n  if (passed < required) throw new $TypeError('Not enough arguments');\n  return passed;\n};\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/validate-arguments-length.js?");
-
-/***/ }),
-
 /***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/weak-map-basic-detection.js":
 /*!****************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/weak-map-basic-detection.js ***!
@@ -1445,6 +1610,39 @@ eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/
 
 "use strict";
 eval("\nvar global = __webpack_require__(/*! ../internals/global */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/global.js\");\nvar setToStringTag = __webpack_require__(/*! ../internals/set-to-string-tag */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/set-to-string-tag.js\");\n\n// JSON[@@toStringTag] property\n// https://tc39.es/ecma262/#sec-json-@@tostringtag\nsetToStringTag(global.JSON, 'JSON', true);\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.json.to-string-tag.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.constructor.js":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.constructor.js ***!
+  \********************************************************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar collection = __webpack_require__(/*! ../internals/collection */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/collection.js\");\nvar collectionStrong = __webpack_require__(/*! ../internals/collection-strong */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/collection-strong.js\");\n\n// `Map` constructor\n// https://tc39.es/ecma262/#sec-map-objects\ncollection('Map', function (init) {\n  return function Map() { return init(this, arguments.length ? arguments[0] : undefined); };\n}, collectionStrong);\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.constructor.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.group-by.js":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.group-by.js ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/export.js\");\nvar uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-this */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/function-uncurry-this.js\");\nvar aCallable = __webpack_require__(/*! ../internals/a-callable */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/a-callable.js\");\nvar requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/require-object-coercible.js\");\nvar iterate = __webpack_require__(/*! ../internals/iterate */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/iterate.js\");\nvar MapHelpers = __webpack_require__(/*! ../internals/map-helpers */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/map-helpers.js\");\nvar IS_PURE = __webpack_require__(/*! ../internals/is-pure */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/is-pure.js\");\n\nvar Map = MapHelpers.Map;\nvar has = MapHelpers.has;\nvar get = MapHelpers.get;\nvar set = MapHelpers.set;\nvar push = uncurryThis([].push);\n\n// `Map.groupBy` method\n// https://github.com/tc39/proposal-array-grouping\n$({ target: 'Map', stat: true, forced: IS_PURE }, {\n  groupBy: function groupBy(items, callbackfn) {\n    requireObjectCoercible(items);\n    aCallable(callbackfn);\n    var map = new Map();\n    var k = 0;\n    iterate(items, function (value) {\n      var key = callbackfn(value, k++);\n      if (!has(map, key)) set(map, key, [value]);\n      else push(get(map, key), value);\n    });\n    return map;\n  }\n});\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.group-by.js?");
+
+/***/ }),
+
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.js ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n// TODO: Remove this module from `core-js@4` since it's replaced to module below\n__webpack_require__(/*! ../modules/es.map.constructor */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.constructor.js\");\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/es.map.js?");
 
 /***/ }),
 
@@ -1862,36 +2060,14 @@ eval("\n__webpack_require__(/*! ../modules/es.array.iterator */ \"./node_modules
 
 /***/ }),
 
-/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.set-interval.js":
-/*!******************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.set-interval.js ***!
-  \******************************************************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/stable/map/index.js":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/stable/map/index.js ***!
+  \**********************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/export.js\");\nvar global = __webpack_require__(/*! ../internals/global */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/global.js\");\nvar schedulersFix = __webpack_require__(/*! ../internals/schedulers-fix */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/schedulers-fix.js\");\n\nvar setInterval = schedulersFix(global.setInterval, true);\n\n// Bun / IE9- setInterval additional parameters fix\n// https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-setinterval\n$({ global: true, bind: true, forced: global.setInterval !== setInterval }, {\n  setInterval: setInterval\n});\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.set-interval.js?");
-
-/***/ }),
-
-/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.set-timeout.js":
-/*!*****************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.set-timeout.js ***!
-  \*****************************************************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/export.js\");\nvar global = __webpack_require__(/*! ../internals/global */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/global.js\");\nvar schedulersFix = __webpack_require__(/*! ../internals/schedulers-fix */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/schedulers-fix.js\");\n\nvar setTimeout = schedulersFix(global.setTimeout, true);\n\n// Bun / IE9- setTimeout additional parameters fix\n// https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout\n$({ global: true, bind: true, forced: global.setTimeout !== setTimeout }, {\n  setTimeout: setTimeout\n});\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.set-timeout.js?");
-
-/***/ }),
-
-/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.timers.js":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.timers.js ***!
-  \************************************************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-eval("\n// TODO: Remove this module from `core-js@4` since it's split to modules listed below\n__webpack_require__(/*! ../modules/web.set-interval */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.set-interval.js\");\n__webpack_require__(/*! ../modules/web.set-timeout */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.set-timeout.js\");\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.timers.js?");
+eval("\nvar parent = __webpack_require__(/*! ../../es/map */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/es/map/index.js\");\n__webpack_require__(/*! ../../modules/web.dom-collections.iterator */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.dom-collections.iterator.js\");\n\nmodule.exports = parent;\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/stable/map/index.js?");
 
 /***/ }),
 
@@ -1903,17 +2079,6 @@ eval("\n// TODO: Remove this module from `core-js@4` since it's split to modules
 
 "use strict";
 eval("\nvar parent = __webpack_require__(/*! ../../es/object/define-property */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/es/object/define-property.js\");\n\nmodule.exports = parent;\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/stable/object/define-property.js?");
-
-/***/ }),
-
-/***/ "./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/stable/set-timeout.js":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/stable/set-timeout.js ***!
-  \************************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-eval("\n__webpack_require__(/*! ../modules/web.timers */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/modules/web.timers.js\");\nvar path = __webpack_require__(/*! ../internals/path */ \"./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/internals/path.js\");\n\nmodule.exports = path.setTimeout;\n\n\n//# sourceURL=webpack://logic_sdk/./node_modules/.pnpm/core-js-pure@3.36.0/node_modules/core-js-pure/stable/set-timeout.js?");
 
 /***/ }),
 
