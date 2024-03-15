@@ -1,4 +1,6 @@
 import message from '@/message';
+import { AppModule } from './appModule';
+import { PageModule } from './PageModule';
 
 class Loader {
   constructor() {
@@ -17,6 +19,17 @@ class Loader {
         bridgeId,
       },
     });
+  }
+
+  createAppModule(moduleInfo) {
+    const appModule = new AppModule(moduleInfo);
+    this.staticModules.set('app', appModule);
+  }
+
+  createPageModule(moduleInfo, compileInfo) {
+    const pageModule = new PageModule(moduleInfo, compileInfo);
+    const { path } = compileInfo;
+    this.staticModules.set(path, pageModule);
   }
 }
 
