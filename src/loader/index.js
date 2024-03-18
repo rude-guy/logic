@@ -31,6 +31,13 @@ class Loader {
     const { path } = compileInfo;
     this.staticModules.set(path, pageModule);
   }
+
+  getInitialDataByPagePath(path) {
+    const pageModule = this.staticModules.get(path);
+    return {
+      [path]: pageModule.getInitialData(),
+    };
+  }
 }
 
 export default new Loader();

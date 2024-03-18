@@ -4,4 +4,7 @@ export class PageModule {
     this.moduleInfo = moduleInfo;
     this.compileInfo = compileInfo;
   }
+  getInitialData() {
+    return this.moduleInfo.data || {};
+  }
 }
