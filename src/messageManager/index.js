@@ -42,6 +42,27 @@ class MessageManager {
         },
       });
     });
+    this.message.receive('createInstance', (msg) => {
+      runtimeManager.createPage(msg);
+    });
+    this.message.receive('pageShow', (msg) => {
+      const { bridgeId } = msg;
+      runtimeManager.pageShow({
+        id: bridgeId,
+      });
+    });
+    this.message.receive('pageHide', (msg) => {
+      const { bridgeId } = msg;
+      runtimeManager.pageHide({
+        id: bridgeId,
+      });
+    });
+    this.message.receive('moduleMounted', (msg) => {
+      runtimeManager.pageReady(msg);
+    });
+    this.message.receive('pageScroll', (msg) => {
+      runtimeManager.pageScroll(msg);
+    });
   }
 }
 

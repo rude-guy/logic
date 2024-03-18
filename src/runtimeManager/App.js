@@ -18,6 +18,7 @@ export class App {
   initLifeCycle() {
     lifeCycleMethods.forEach((name) => {
       if (!isFunction(this.moduleInfo[name])) {
+        return;
       }
       // 初始化生命周期函数
       this[name] = this.moduleInfo[name].bind(this) || loop;

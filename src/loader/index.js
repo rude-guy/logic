@@ -21,6 +21,10 @@ class Loader {
     });
   }
 
+  getModuleByPath(path) {
+    return this.staticModules.get(path);
+  }
+
   createAppModule(moduleInfo) {
     const appModule = new AppModule(moduleInfo);
     this.staticModules.set('app', appModule);
