@@ -1,4 +1,5 @@
 import { isFunction, cloneDeep } from 'lodash';
+import message from '@/message';
 
 const lifeCycleMethods = ['onLoad', 'onReady', 'onShow', 'onHide', 'onUnload', 'onPageScroll'];
 const loop = () => {};
@@ -33,5 +34,19 @@ export class Page {
         this[attr] = this.pageModule.moduleInfo[attr].bind(this);
       }
     }
+  }
+
+  setData(data) {
+    for (let key in data) {
+      this.data[key] = data[key];
+    }
+    message.send({
+      type: 'updateModule',
+      body: {
+        data: this.data,
+        id: this.id,
+        bridgeId: this.id,
+      },
+    });
   }
 }

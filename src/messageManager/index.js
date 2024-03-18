@@ -63,6 +63,9 @@ class MessageManager {
     this.message.receive('pageScroll', (msg) => {
       runtimeManager.pageScroll(msg);
     });
+    this.message.receive('triggerEvent', (msg) => {
+      runtimeManager.triggerEvent(msg);
+    });
   }
 }
 

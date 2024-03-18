@@ -55,6 +55,11 @@ class RuntimeManager {
         scrollTop,
       });
   }
+  triggerEvent(opts) {
+    const { id, methodName } = opts;
+    const currentPage = this.pages[id];
+    currentPage[methodName] && currentPage[methodName]();
+  }
 }
 
 export default new RuntimeManager();
