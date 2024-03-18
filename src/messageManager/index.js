@@ -1,5 +1,6 @@
 import message from '@/message';
 import loader from '@/loader';
+import runtimeManager from '@/runtimeManager';
 
 class MessageManager {
   constructor() {
@@ -13,6 +14,15 @@ class MessageManager {
         appId,
         bridgeId,
       });
+    });
+    this.message.receive('createApp', (msg) => {
+      runtimeManager.createApp(msg);
+    });
+    this.message.receive('appShow', () => {
+      runtimeManager.appShow();
+    });
+    this.message.receive('appHide', () => {
+      runtimeManager.appHide();
     });
   }
 }

@@ -8,8 +8,8 @@ class Message {
   init() {
     // 监听原生层发送的消息
     global.addEventListener('message', (e) => {
-      const mes = e.data;
-      const { type, body } = mes;
+      const msg = e.data;
+      const { type, body } = msg;
       this.event.emit(type, body);
     });
   }
