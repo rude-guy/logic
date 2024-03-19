@@ -9,10 +9,11 @@ class MessageManager {
 
   init() {
     this.message.receive('loadResource', (msg) => {
-      const { appId, bridgeId } = msg;
+      const { appId, bridgeId, pages } = msg;
       loader.loadResources({
         appId,
         bridgeId,
+        pages,
       });
     });
     this.message.receive('createApp', (msg) => {

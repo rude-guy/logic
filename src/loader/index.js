@@ -8,10 +8,14 @@ class Loader {
   }
 
   loadResources(opts) {
-    const { appId, bridgeId } = opts;
+    const { appId, bridgeId, pages } = opts;
     const logicResourcePath = `http://127.0.0.1:3077/mini_resource/${appId}/logic.js`;
 
     importScripts(logicResourcePath);
+    global.modRequire('app');
+    pages.forEach((path) => {
+      global.modRequire(path);
+    });
     message.send({
       type: 'logicResourceLoaded',
       body: {
