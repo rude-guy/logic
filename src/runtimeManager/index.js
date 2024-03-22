@@ -2,6 +2,7 @@ import { App } from './App';
 import { Page } from './Page';
 import loader from '@/loader';
 import navigation from '../navigation';
+import callback from '../callback';
 
 class RuntimeManager {
   constructor() {
@@ -73,6 +74,10 @@ class RuntimeManager {
     const { id, methodName } = opts;
     const currentPage = this.pages[id];
     currentPage[methodName] && currentPage[methodName]();
+  }
+  triggerCallback(opts) {
+    const { callbackId, args } = opts;
+    callback.triggerCallback(callbackId, args);
   }
 }
 

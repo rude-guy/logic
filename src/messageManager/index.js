@@ -73,6 +73,9 @@ class MessageManager {
         id: bridgeId,
       });
     });
+    this.message.receive('triggerCallback', (msg) => {
+      runtimeManager.triggerCallback(msg);
+    });
   }
 }
 
