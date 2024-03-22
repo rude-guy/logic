@@ -1,6 +1,7 @@
 import { App } from './App';
-import loader from '../loader';
 import { Page } from './Page';
+import loader from '@/loader';
+import navigation from '../navigation';
 
 class RuntimeManager {
   constructor() {
@@ -10,6 +11,9 @@ class RuntimeManager {
   createApp(opts) {
     const { scene, pagePath, query } = opts;
     const appModule = loader.staticModules.get('app');
+    if (this.app) {
+      return;
+    }
     this.app = new App(appModule.moduleInfo, {
       scene,
       pagePath,
@@ -25,6 +29,11 @@ class RuntimeManager {
   createPage(opts) {
     const { id, path, bridgeId, query } = opts;
     const staticModule = loader.getModuleByPath(path);
+    navigation.pushStack({
+      bridgeId,
+      query,
+      pagePath: path,
+    });
     this.pages[id] = new Page(staticModule, {
       id,
       path,

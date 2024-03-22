@@ -1,5 +1,5 @@
 import message from '@/message';
-import { AppModule } from './appModule';
+import { AppModule } from './AppModule';
 import { PageModule } from './PageModule';
 
 class Loader {
