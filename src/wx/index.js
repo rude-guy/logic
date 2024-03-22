@@ -1,8 +1,27 @@
 import message from '../message';
 import callback from '../callback';
+import navigation from '../navigation';
 
 class WinXin {
   constructor() {}
+
+  showToast(opts) {
+    const { title, icon, duration } = opts;
+
+    const { bridgeId } = navigation.getCurrentPageInfo();
+
+    message.send({
+      type: 'showToast',
+      body: {
+        bridgeId,
+        params: {
+          title,
+          icon,
+          duration,
+        },
+      },
+    });
+  }
 
   navigateTo(opts) {
     const { url, onSuccess } = opts;
