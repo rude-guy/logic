@@ -24,6 +24,20 @@ class WinXin {
       },
     });
   }
+
+  navigateToMiniProgram(opts) {
+    const { appId, path } = opts;
+    message.send({
+      type: 'triggerWXApi',
+      body: {
+        apiName: 'navigateToMiniProgram',
+        params: {
+          appId,
+          path,
+        },
+      },
+    });
+  }
 }
 
 export default new WinXin();
