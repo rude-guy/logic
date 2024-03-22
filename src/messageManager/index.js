@@ -67,6 +67,12 @@ class MessageManager {
     this.message.receive('triggerEvent', (msg) => {
       runtimeManager.triggerEvent(msg);
     });
+    this.message.receive('pageUnload', (msg) => {
+      const { bridgeId } = msg;
+      runtimeManager.pageUnload({
+        id: bridgeId,
+      });
+    });
   }
 }
 

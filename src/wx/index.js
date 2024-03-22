@@ -13,6 +13,15 @@ class WinXin {
       },
     });
   }
+  navigateBack() {
+    message.send({
+      type: 'triggerWXApi',
+      body: {
+        apiName: 'navigateBack',
+        params: {},
+      },
+    });
+  }
 }
 
 export default new WinXin();

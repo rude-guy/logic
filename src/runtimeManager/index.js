@@ -64,6 +64,11 @@ class RuntimeManager {
         scrollTop,
       });
   }
+  pageUnload(opts) {
+    const { id } = opts;
+    const currentPage = this.pages[id];
+    currentPage && currentPage.onUnload();
+  }
   triggerEvent(opts) {
     const { id, methodName } = opts;
     const currentPage = this.pages[id];
