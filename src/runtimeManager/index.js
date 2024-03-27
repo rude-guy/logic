@@ -71,9 +71,9 @@ class RuntimeManager {
     currentPage && currentPage.onUnload();
   }
   triggerEvent(opts) {
-    const { id, methodName } = opts;
+    const { id, methodName, event } = opts;
     const currentPage = this.pages[id];
-    currentPage[methodName] && currentPage[methodName]();
+    currentPage[methodName] && currentPage[methodName](event);
   }
   triggerCallback(opts) {
     const { callbackId, args } = opts;
